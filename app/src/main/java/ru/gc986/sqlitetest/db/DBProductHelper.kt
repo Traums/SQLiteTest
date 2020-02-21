@@ -23,4 +23,10 @@ class DBProductHelper(val db: DBHelper) {
         return cursor.count
     }
 
+    fun getProduct(id:Int): String{
+        val rdb = db.getReadableDatabase()
+        val cursor = rdb.query(DB_TABLE_PRODUCT, null, null, null, null, null, null)
+        cursor.moveToPosition(id)
+        return (cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(2)).toString()
+    }
 }
