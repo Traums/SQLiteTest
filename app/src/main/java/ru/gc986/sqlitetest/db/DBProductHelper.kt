@@ -29,4 +29,9 @@ class DBProductHelper(val db: DBHelper) {
         cursor.moveToPosition(id)
         return (cursor.getString(0)+" "+cursor.getString(1)+" "+cursor.getString(2)).toString()
     }
+    fun delete(id : String) : String {
+        val db = db.getWritableDatabase()
+        val cursor = db.query(DB_TABLE_PRODUCT, null, null, null, null, null, null)
+        return db.delete(DB_TABLE_PRODUCT,"name  = "+ id, null).toString()
+    }
 }
