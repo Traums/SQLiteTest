@@ -18,15 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val text: TextView = findViewById(R.id.textView4) as TextView
-        var outText = ""
-        val cou = ("${dbPH.getCount()}").toInt()
-        var add = "${dbPH.getProduct(0)}"
-        for (i in 0..cou - 1) {
-            add = "${dbPH.getProduct(i.toInt())}"
-            outText += add + "\n"
-        }
-        text.setText(outText)
+        //reWrite()
 
         btPutProduct.setOnClickListener {
             dbPH.putProduct(etName.text.toString(), etAmount.text.toString().toInt())
@@ -36,32 +28,31 @@ class MainActivity : AppCompatActivity() {
             val count = "Count of products = ${dbPH.getCount()}"
             Toast.makeText(this, count, Toast.LENGTH_SHORT).show()
 
-            val text: TextView = findViewById(R.id.textView4) as TextView
-            var outText = ""
-            val cou = ("${dbPH.getCount()}").toInt()
-            var add = "${dbPH.getProduct(0)}"
-            for (i in 0..cou - 1) {
-                add = "${dbPH.getProduct(i.toInt())}"
-                outText += add + "\n"
-            }
-            text.setText(outText)
+            reWrite()
 
         }
-        btPutProduct2.setOnClickListener{
+        btPutProduct2.setOnClickListener {
+
             var textd = etName2.text.toString()
-            //"${dbPH.delete(textd)}"
+            "${dbPH.delete(textd)}"
             etName2.text.clear()
-            var del= ("${dbPH.delete(textd)}")
-            Toast.makeText(this,del,Toast.LENGTH_SHORT).show()
-            val text: TextView = findViewById(R.id.textView4) as TextView
-            var outText = ""
-            val cou = ("${dbPH.getCount()}").toInt()
-            var add = "${dbPH.getProduct(0)}"
-            for (i in 0..cou - 1) {
-                add = "${dbPH.getProduct(i.toInt())}"
-                outText += add + "\n"
-            }
-            text.setText(outText)
+
+            //var del= ("${dbPH.delete(textd)}")
+            //Toast.makeText(this,del,Toast.LENGTH_SHORT).show()
+
+            reWrite()
         }
+    }
+
+    fun reWrite() {
+        val text: TextView = findViewById(R.id.textView4) as TextView
+        var outText = ""
+        val cou = ("${dbPH.getCount()}").toInt()
+        var add = "${dbPH.getProduct(0)}"
+        for (i in 0..cou - 1) {
+            add = "${dbPH.getProduct(i.toInt())}"
+            outText += add + "\n"
+        }
+        text.setText(outText)
     }
 }

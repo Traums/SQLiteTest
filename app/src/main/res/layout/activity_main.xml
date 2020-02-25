@@ -49,6 +49,15 @@
         android:layout_height="37dp"
         android:text="put product" />
 
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Delete product"
+        android:textColor="@android:color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
     <EditText
         android:id="@+id/etName2"
         android:layout_width="match_parent"
@@ -75,7 +84,7 @@
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="TextView" />
+                android:text="Data Base" />
         </LinearLayout>
     </ScrollView>
 
